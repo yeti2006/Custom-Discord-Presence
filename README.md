@@ -1,11 +1,6 @@
 # custom_discord_presence
 Create your own custom discord rich presence. This is my first project :p but I'm not dissapointed atleast
 
-<style>
-    body {
-        background: rgb(0,0,0);
-    }
-</style>
 
 Hello :D
 
@@ -55,6 +50,8 @@ You have to extract the zip and store the folder in the zip somewhere. You can e
 ## Screenshot
 
 ![Custom Discord Presence](assets/ss.png)
+
+
 ik the colorful UI is cringe.
 
 ___
