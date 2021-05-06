@@ -56,3 +56,10 @@ You have to extract the zip and store the folder in the zip somewhere. You can e
 
 ![Custom Discord Presence](assets/ss.png)
 ik the colorful UI is cringe.
+
+___
+# Feedback
+
+Add me on discord **Yeti#1652**
+
+Thanks <3!
