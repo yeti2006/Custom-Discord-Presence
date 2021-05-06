@@ -1,6 +1,11 @@
 # custom_discord_presence
 Create your own custom discord rich presence. This is my first project :p but I'm not dissapointed atleast
 
+<style>
+    body {
+        background: rgb(0,0,0);
+    }
+</style>
 
 Hello :D
 
@@ -39,12 +44,15 @@ You have to extract the zip and store the folder in the zip somewhere. You can e
 > How do I save my presence information so I don't have to retype it again?
 * After you enter your information, clicking 'Start Presence' would automatically save them. So when you open the application next time, the information is already entered and all you have to do is start it.
 
-<marquee>==========Enjoy!!✌️============</marquee>
+> How do I something I did is wrong?
+* Simple. The program would crash :joy:
+* Sorry, I'll handle errors soon.
+
+<marquee>==========Have fun!✌️============</marquee>
 
 ![discord lags](assets/gif.gif)
 
-<style type="text/css">
-  body {
-    background-color: #336655;
-  }
-</style>
+## Screenshot
+
+![Custom Discord Presence](assets/ss.png)
+ik the colorful UI is cringe.
