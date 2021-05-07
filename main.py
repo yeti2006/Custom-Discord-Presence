@@ -7,6 +7,9 @@ import pypresence
 import webbrowser
 import os
 import markdown
+import sys
+
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -37,11 +40,11 @@ class Ui_MainWindow(object):
         self.startButton.setStyleSheet("color: rgb(0, 0, 0);\n"
 "background-color: rgb(85, 255, 127);")
         self.startButton.setObjectName("startButton")
-#         self.stopButton = QtWidgets.QPushButton(self.centralwidget)
-#         self.stopButton.setGeometry(QtCore.QRect(460, 110, 75, 23))
-#         self.stopButton.setStyleSheet("color: rgb(0, 0, 0);\n"
-# "background-color: rgb(255, 0, 0);")
-#        self.stopButton.setObjectName("stopButton")
+        self.reloadButton = QtWidgets.QPushButton(self.centralwidget)
+        self.reloadButton.setGeometry(QtCore.QRect(460, 110, 75, 23))
+        self.reloadButton.setStyleSheet("color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 0, 0);")
+        self.reloadButton.setObjectName("reloadButton")
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setGeometry(QtCore.QRect(10, 50, 118, 3))
         self.line.setStyleSheet("color: rgb(85, 255, 0);\n"
@@ -182,14 +185,21 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.startButton.clicked.connect(self.dump)
-#         self.stopButton.clicked.connect(self.stop)
+        self.reloadButton.clicked.connect(self.reload)
         self.instructionsButton.clicked.connect(self.instruct)
-#     def stop(self):
-#         with open('./data.json') as f:
-#                 data = json.load(f)
-            
-#         self.MainWindow.exit()
 
+         
+    def reload(self):
+
+        def restart_program():
+                """Restarts the current program.
+                Note: this function does not return. Any cleanup action (like
+                saving data) must be done before calling this function."""
+                python = sys.executable
+                os.execl(python, python, * sys.argv)
+
+        restart_program()
+                
     def instruct(self):
         webbrowser.open_new_tab("https://github.com/yeti2006/custom_discord_presence/blob/main/README.md")
 
@@ -241,7 +251,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Custom Discord Rich Presence 😎"))
         self.instructionsButton.setText(_translate("MainWindow", "Instructions"))
         self.startButton.setText(_translate("MainWindow", "Start Presence"))
-  #      self.stopButton.setText(_translate("MainWindow", "Stop Presence")) 
+        self.reloadButton.setText(_translate("MainWindow", "Reload")) 
         self.clientID.setText(_translate("MainWindow", str(self.load_json('client_id'))))
         self.smallImage.setText(_translate("MainWindow", str(self.load_json('small_image'))))
         self.largeText.setText(_translate("MainWindow", str(self.load_json('large_image_text'))))
@@ -284,10 +294,10 @@ class WorkerThread(QThread):
                         data = json.load(f)
                         nullify(data)
                         
-                
                 loop = asyncio.new_event_loop()
                 rpc = pypresence.Presence(client_id=data['client_id'], loop=loop)
                 rpc.connect()
+                        
                 while True:
                         rpc.update(state=data['state'],
                                 large_image=data['large_image'],
@@ -308,3 +318,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
