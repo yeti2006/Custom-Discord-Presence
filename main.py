@@ -62,6 +62,7 @@ class Ui(QtWidgets.QMainWindow):
         self.startButton.clicked.connect(self.presence)
         self.instructionsButton.clicked.connect(self.instruct)
         self.saveButton.clicked.connect(self.save)
+        self.addNewTemplate.clicked.connect(self.newTemplate)
         
             #Console
         self.textBrowser = self.findChild(QTextBrowser, 'textBrowser')
@@ -205,6 +206,25 @@ p, li  white-space: pre-wrap;
         self.details.setText(data['details'])
         self.start.setText(data['start'])
         self.end.setText(data['end'])
+
+    def newTemplate(self):
+            text, ok = QInputDialog.getText(self, 'input dialog', 'Create New Template')
+            if ok:
+                f = open(f"./templates/{text}.json", 'w')
+                f.writelines("""
+{
+        "client_id": 123456789,
+        "small_image": "",
+        "large_image_text": "example",
+        "large_image": "large",
+        "small_image_text": "",
+        "state": "State",
+        "details": "Details",
+        "start": "1620206474",
+        "end": ""
+}""")
+                f.close()
+                self.comboBox.addItem(text)        
 
 class WorkerThread(QThread):
         def __init__(self, options):
