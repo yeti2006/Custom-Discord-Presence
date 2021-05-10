@@ -12,6 +12,15 @@ Here's an example:
 
 
 # Custom Discord RPC
+
+<center><h2> What's new? <h2></center>
+
+____
+
+* Added Minimize to System Tray functionality.
+* Added Reload Button. 
+* Added data console thingy. (Shows what you've entered...)
+
 **So how do I use this?**
 
 You have to extract the zip and store the folder in the zip somewhere. You can either directly run it from the folder, or, create a shortcut and use it.
@@ -33,11 +42,20 @@ You have to extract the zip and store the folder in the zip somewhere. You can e
 
 * Timestamps are optional. You can get these by visiting [here](https://www.epochconverter.com)
 
+* If you decide to leave the optional ones, just leave them blank. Timestamps would create 'None' inside the box when you open the app next time, either leave it like that or erase it doesn't make a difference.
+
 > How do I disable the presence?
-* You can just quit the program. It will close your presence.
+* THE RED STOP BUTTON UR WELCOME. (It takes a little time to clear the presence, like 5 seconds)
 
 > How do I save my presence information so I don't have to retype it again?
-* After you enter your information, clicking 'Start Presence' would automatically save them. So when you open the application next time, the information is already entered and all you have to do is start it.
+* Hit save. Also, when you enter your information and hit start presence, it'll automatically save it too. The save button is an alternative.
+
+> How do I create multiple saves?
+* You can create them by going inside the templates folder in the installation directory. Name it whatever you want but make sure you save the file in json format. There is a  _custom_1.json_ for your reference.
+
+* Once you click save, with your template selected from the drop down, it'll save to that template.
+
+* Also, the application would start in the 'Main' template selected the next time you open it.
 
 > How do I something I did is wrong?
 * Simple. The program would crash :joy:
@@ -60,3 +78,9 @@ ___
 Add me on discord **Yeti#1652**
 
 Thanks <3!
+
+# Contributor
+
+<p align="center"><img src="assets/hitechgen.png" width="100%;" height="100%;"></p>
+
+<p align="center"><a href="https://www.github.com/HiTechGen">HiTechGen</a></p>
