@@ -19,7 +19,7 @@ ____
 
 * Added Minimize to System Tray functionality.
 * Added Reload Button. 
-* Added data console thingy. (Shows what you've entered...)
+* Added templates!
 
 **So how do I use this?**
 
@@ -51,9 +51,9 @@ Install the application anywhere you like using the installer. Go to the directo
 * Hit save. Also, when you enter your information and hit start presence, it'll automatically save it too. The save button is an alternative.
 
 > How do I create multiple saves?
-* You can create them by going inside the templates folder in the installation directory. Name it whatever you want but make sure you save the file in json format. There is a  _example_.json for your reference.
+* Click on the plus button and enter your new template name. Hit Ok and you can save changes by going into that template and clicking the save button. (Made it easier in V1.2)
 
-* Once you click save, with your template selected from the drop down, it'll save to that template.
+* When you click save, with your template selected from the drop down, it'll save to that template.
 
 * Also, the application would start in the 'Main' template selected the next time you open it.
 
