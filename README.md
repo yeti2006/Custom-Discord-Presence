@@ -23,7 +23,7 @@ ____
 
 **So how do I use this?**
 
-You have to extract the zip and store the folder in the zip somewhere. You can either directly run it from the folder, or, create a shortcut and use it.
+Install the application anywhere you like using the installer. Go to the directory you have installed it and run _Custom Discord Presence.exe_. It can be a little slow so because the files are compressed. Create a shortcut and send it to your desktop if you need.
 
 >How to create an application?
 
@@ -51,7 +51,7 @@ You have to extract the zip and store the folder in the zip somewhere. You can e
 * Hit save. Also, when you enter your information and hit start presence, it'll automatically save it too. The save button is an alternative.
 
 > How do I create multiple saves?
-* You can create them by going inside the templates folder in the installation directory. Name it whatever you want but make sure you save the file in json format. There is a  _custom_1.json_ for your reference.
+* You can create them by going inside the templates folder in the installation directory. Name it whatever you want but make sure you save the file in json format. There is a  _example_.json for your reference.
 
 * Once you click save, with your template selected from the drop down, it'll save to that template.
 
