@@ -1,6 +1,8 @@
 # custom_discord_presence
 Create your own custom discord rich presence. This is my first project :p but I'm not dissapointed atleast
 
+[![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)
+
 
 Hello :D
 
@@ -17,9 +19,9 @@ Here's an example:
 
 ____
 
-* Added Minimize to System Tray functionality.
-* Added Reload Button. 
-* Added templates!
+* Added Buttons.
+* Added Template remove function.
+* Added UI colors.
 
 **So how do I use this?**
 
@@ -57,20 +59,28 @@ Install the application anywhere you like using the installer. Go to the directo
 
 * Also, the application would start in the 'Main' template selected the next time you open it.
 
+> How do I add buttons?
+* Make sure you enter your button name and it's URL in the correct place. Then check the CheckBox above it.
+
+* Note: Ig it's not possible for you to open your own link, but other people viewing your presence can.
+
+> Any User Interface templates?
+* There's a directory called 'UI'. Go inside it and copy the .ui file you want and paste it in the installation directory. Replace the existing one. The existing one is the grey coloured(discord color) background and it's default.
+
 > How do I something I did is wrong?
 * Simple. The program would crash :joy:
 * Sorry, I'll handle errors soon.
 
-<marquee>==========Have fun!✌️============</marquee>
+___
 
-![discord lags](assets/gif.gif)
+
+<p align="center"><img src="assets/gif.gif" width="100%;" height="100%;"></p>
 
 ## Screenshot
 
 ![Custom Discord Presence](assets/ss.png)
 
-
-ik the colorful UI is cringe.
+![Custom Discord Presence theme2](assets/ss2.png)
 
 ___
 # Feedback
@@ -81,6 +91,6 @@ Thanks <3!
 
 # Contributor
 
-<p align="center"><img src="assets/hitechgen.png" width="100%;" height="100%;"></p>
+<p align="center"><img src="assets/hitechgen.png" width="50%;" height="50%;"></p>
 
 <p align="center"><a href="https://www.github.com/HiTechGen">HiTechGen</a></p>

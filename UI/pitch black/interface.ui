@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>667</width>
-    <height>393</height>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>DISCORD PRESENCE</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(47,49,54);</string>
+   <string notr="true">background-color: rgb(0, 0, 0);</string>
   </property>
   <property name="documentMode">
    <bool>false</bool>

@@ -1,19 +1,19 @@
 {
     "client_id": 839403432989425684,
     "small_image": "",
-    "large_image_text": "aaaaaaaaaaaaaaa",
+    "large_image_text": "Playing",
     "large_image": "large",
     "small_image_text": "",
-    "state": "State",
-    "details": "Details",
+    "state": "In-Game",
+    "details": "xd",
     "start": "1620206474",
     "end": "",
     "buttons": {
-        "button1": "True",
+        "button1": "False",
         "button2": "False",
-        "button1Text": "button 1",
+        "button1Text": "click me",
         "button1url": "https://youtube.com",
-        "button2text": "button 2",
+        "button2text": ".",
         "button2url": "https://youtube.com"
     }
 }

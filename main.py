@@ -63,9 +63,7 @@ class Ui(QtWidgets.QMainWindow):
         self.instructionsButton.clicked.connect(self.instruct)
         self.saveButton.clicked.connect(self.save)
         self.addNewTemplate.clicked.connect(self.newTemplate)
-        
-            #Console
-        self.textBrowser = self.findChild(QTextBrowser, 'textBrowser')
+        self.removeTemplate.clicked.connect(self.remTemplate)
         
             #template ComboBox
         self.comboBox = self.findChild(QComboBox, 'comboBox')
@@ -92,15 +90,21 @@ class Ui(QtWidgets.QMainWindow):
         self.details.setText(data['details'])
         self.start.setText(data['start'])
         self.end.setText(data['end'])
-      
+        self.button1Text.setText(data['buttons']['button1Text'])
+        self.button2Text.setText(data['buttons']['button2text'])
+        self.button1url.setText(data['buttons']['button1url'])
+        self.button2url.setText(data['buttons']['button2url'])
+
+
+                
     def closeEvent(self, event):
         if self.to_tray_check.isChecked():
             event.ignore()
             self.hide()
             self.tray_icon.showMessage(
-                "Custom Discord Presence",
+                "Discord Presence",
                 "Application was minimized to Tray",
-                QSystemTrayIcon.Information,
+                QIcon("icon.ico"),
                 2000
             )
 
@@ -123,37 +127,8 @@ class Ui(QtWidgets.QMainWindow):
         else:
                 file = "./data.json"
             
-        with open(file) as f:
-                data = json.load(f)
-                nullify(data)
         self.save()
-        self.textBrowser.clear()
-        self.textBrowser.setHtml(
-                f"""<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"> 
-<html><head><meta name="qrichtext" content="1" /><style type="text/css">
-p, li  white-space: pre-wrap; 
-</style></head><body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;"\>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">Hi :D I'll be your console so you can know what's going on</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">--------------</span></p>\n
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#55ff00;"><br /></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#00FFFF;">Presence Status: Presence is displayed</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">    | presence_status Displaying</span></p>\n
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#55ff00;"><br /></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">Details:</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">    | state: {data['state']}</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">    | details: {data['details']}</span></p>\n
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#55ff00;"><br /></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">Images:</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">    | large image: {data['large_image']}</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">        | large image text: {data['large_image_text']}</span></p>\n
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#55ff00;"><br /></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">    | small image: {data['small_image']}</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">        | small image text: {data['small_image_text']}</span></p>\n
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#55ff00;"><br /></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">Timestamps:</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">    | start: {data['start']}</span></p>\n
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-weight:600; color:#55ff00;">    | end: {data['end']}</span></p></body></html>"""
-)
+        
         self.worker = WorkerThread(options=self.comboBox.currentText())
         self.worker.start()
         
@@ -180,9 +155,20 @@ p, li  white-space: pre-wrap;
                 'details': self.details.text(),
                 
                 'start': self.start.text(),
-                'end': self.end.text()
+                'end': self.end.text(),
+                
+                
+                "buttons": { #button yes
+                        "button1": str(self.button1check.isChecked()),
+                        "button2": str(self.button2check.isChecked()),
+                        "button1Text": self.button1Text.text(),
+                        "button1url": self.button1url.text(),
+                        "button2text": self.button2Text.text(),
+                        "button2url": self.button2url.text()
+                }
         }
-        
+                    
+            
   
         with open(file, 'w') as file:
                 json.dump(data, file, indent=4, sort_keys=False) 
@@ -206,25 +192,57 @@ p, li  white-space: pre-wrap;
         self.details.setText(data['details'])
         self.start.setText(data['start'])
         self.end.setText(data['end'])
+        self.button1Text.setText(data['buttons']['button1Text'])
+        self.button1url.setText(data['buttons']['button1url'])
+        self.button2text.setText(data['buttons']['button2text'])
+        self.button2url.setText(data['buttons']['button2url'])
 
     def newTemplate(self):
+            QInputDialog.setStyleSheet(self, "background-color: green;")
             text, ok = QInputDialog.getText(self, 'input dialog', 'Create New Template')
+            QInputDialog.setStyleSheet(self, "background-color: black;")
             if ok:
                 f = open(f"./templates/{text}.json", 'w')
                 f.writelines("""
 {
         "client_id": 123456789,
         "small_image": "",
-        "large_image_text": "example",
-        "large_image": "large",
+        "large_image_text": "",
+        "large_image": "",
         "small_image_text": "",
         "state": "State",
         "details": "Details",
-        "start": "1620206474",
-        "end": ""
+        "start": "",
+        "end": "",
+        "buttons":{     
+                        "button1": "",
+                        "button2": "",
+                        "button1Text": "",
+                        "button1url": "",
+                        "button2text": "",
+                        "button2url": ""
+                }
+        
 }""")
                 f.close()
-                self.comboBox.addItem(text)        
+                self.comboBox.addItem(text)
+                self.comboBox.setCurrentText(text)      
+                
+    def remTemplate(self):
+        if self.comboBox.currentText != "Main":
+                try:
+                        os.remove("./templates/" + self.comboBox.currentText() + ".json")
+                except:
+                        pass
+                self.comboBox.clear()
+                
+                templates = []
+                for filename in os.listdir("templates"):
+                        if filename.endswith('.json'):
+                                templates.append(filename[:-5])
+                self.comboBox.addItems(templates)
+                self.comboBox.addItem("Main")
+          
 
 class WorkerThread(QThread):
         def __init__(self, options):
@@ -244,20 +262,52 @@ class WorkerThread(QThread):
                         data = json.load(f)
                         nullify(data)
                         
+            
                 loop = asyncio.new_event_loop()
                 rpc = pypresence.Presence(client_id=data['client_id'], loop=loop)
                 rpc.connect()
                 print("Presence connected")
                         
                 while True:
-                        rpc.update(state=data['state'],
-                                large_image=data['large_image'],
-                                large_text=data['large_image_text'],
-                                small_image=data['small_image'],
-                                small_text=data['small_image_text'],
-                                details=data['details'],
-                                start=data['start'],
-                                end=data['end'])
+                  
+                        
+                        my_presence = dict()
+
+                        my_presence['state'] = data['state']
+                        my_presence['large_image'] = data['large_image']
+                        my_presence['large_text'] = data['large_image_text']
+                        my_presence['small_image'] = data['small_image']
+                        my_presence['small_text'] = data['small_image_text']
+                        my_presence['details'] = data['details']
+                        if not data['start']:
+                                my_presence['start'] = data['start']
+                        else:
+                                my_presence['start'] = int(data['start'])
+                        if not data['end']:
+                                my_presence['end'] = data['end']
+                        else:
+                                my_presence['end'] = int(data['end'])
+                                
+                        if data['buttons']['button1'] == 'True' and data['buttons']['button2'] == 'True':
+                                my_presence['buttons'] = [{'label': data['buttons']['button1Text'], 'url': data['buttons']['button1url']},
+                                                          {'label': data['buttons']['button2text'], 'url': data['buttons']['button2url']}]
+                                
+                  
+                        elif data['buttons']['button1'] == 'True':
+                                my_presence['buttons'] = [{'label': data['buttons']['button1Text'], 'url': data['buttons']['button1url']}]
+                                
+                                
+                        elif data['buttons']['button2'] == 'True':
+                                my_presence['buttons'] = [{'label': data['buttons']['button2text'], 'url': data['buttons']['button2url']}]
+                                
+
+                        else:
+                                my_presence['buttons'] = None
+                         
+                        rpc.update(**my_presence)
+                         
+                                # buttons=[{'label': data['buttons']['button1Text'], 'url': data['buttons']['button1url']},
+                                #          {'label': data['buttons']['button2text'], 'url': data['buttons']['button2url']}])
                         time.sleep(5)
                         
 if __name__ == "__main__":
