@@ -194,7 +194,7 @@ class Ui(QtWidgets.QMainWindow):
         self.end.setText(data['end'])
         self.button1Text.setText(data['buttons']['button1Text'])
         self.button1url.setText(data['buttons']['button1url'])
-        self.button2text.setText(data['buttons']['button2text'])
+        self.button2Text.setText(data['buttons']['button2text'])
         self.button2url.setText(data['buttons']['button2url'])
 
     def newTemplate(self):
